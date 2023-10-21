@@ -11,13 +11,22 @@ const options = [
 ];
 
 function App() {
-  const [value, setValue] = useState<SelectOptions | undefined>(options[0]);
+  const [value1, setValue1] = useState<SelectOptions[]>([options[0]]);
+  const [value2, setValue2] = useState<SelectOptions | undefined>(options[0]);
   return (
-    <Select
-      value={value}
-      options={options}
-      onChange={(option) => setValue(option)}
-    />
+    <>
+      <Select
+        mutiple
+        value={value1}
+        options={options}
+        onChange={(option) => setValue1(option)}
+      />
+      <Select
+        value={value2}
+        options={options}
+        onChange={(option) => setValue2(option)}
+      />
+    </>
   );
 }
 
